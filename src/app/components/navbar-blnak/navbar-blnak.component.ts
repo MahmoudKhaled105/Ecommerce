@@ -1,14 +1,16 @@
 import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
 import { CartService } from './../../services/cart.service';
+
 @Component({
   selector: 'app-navbar-blnak',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, LoadingBarModule],
   templateUrl: './navbar-blnak.component.html',
   styleUrl: './navbar-blnak.component.scss',
 })
-export class NavbarBlnakComponent implements OnInit{
+export class NavbarBlnakComponent implements OnInit {
   constructor(
     private _Router: Router,
     private _CartService: CartService,
@@ -20,14 +22,13 @@ export class NavbarBlnakComponent implements OnInit{
   @ViewChild('navBar') navElement!: ElementRef;
 
   @HostListener('window:scroll')
-  onScroll(){
-    if(window.scrollY > 400){
-        this._Renderer2.addClass(this.navElement.nativeElement , 'px-5')
-    }else{
-        this._Renderer2.removeClass(this.navElement.nativeElement, 'px-5');
+  onScroll() {
+    if (window.scrollY > 400) {
+      this._Renderer2.addClass(this.navElement.nativeElement, 'px-5');
+    } else {
+      this._Renderer2.removeClass(this.navElement.nativeElement, 'px-5');
     }
   }
-
 
   ngOnInit(): void {
     this._CartService.cartNumber.subscribe({
@@ -46,10 +47,8 @@ export class NavbarBlnakComponent implements OnInit{
 
   // ngAfterViewInit(): void {
   //   this._Renderer2.addClass(this.navElement.nativeElement , 'px-5')
-    
+
   // }
-
-
 
   signout(): void {
     localStorage.removeItem('_token');

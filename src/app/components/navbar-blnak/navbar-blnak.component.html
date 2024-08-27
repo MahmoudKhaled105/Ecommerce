@@ -1,3 +1,5 @@
+    <ngx-loading-bar [height]="'20px'" [color]="'red'" ></ngx-loading-bar>
+
 <nav #navBar class="navbar navbar-expand-sm navbar-light fixed-top bg-light p-0">
     <div class="container-fluid bg-nav" >
         <a class="navbar-brand" routerLink="/"> <img src="./assets/images/freshcart-logo.svg" alt=""> </a>
@@ -13,6 +15,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
+
+            
+
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active-link" >home</a>
