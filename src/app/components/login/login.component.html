@@ -1,0 +1,62 @@
+
+<form (ngSubmit)="handelLogin()" [formGroup]="loginForm" class="rounded shadow w-75 mx-auto bg-main-light p-3 mt-4">
+  <!-- <p> {{loginForm.get("name")?.getError("minlenght") | json }} </p> -->
+  <div class="form-item">
+    <label for="email">email</label>
+    <input
+      class="form-control"
+      formControlName="email"
+      type="email"
+      id="email"
+    />
+    <div
+      *ngIf="
+        loginForm.get('email')?.errors &&
+        (loginForm.get('email')?.touched ||
+          loginForm.get('email')?.value.length > 0)
+      "
+      class="alert alert-danger"
+    >
+      <p *ngIf="loginForm.get('email')?.getError('required')">
+        email is Required
+      </p>
+      <p *ngIf="loginForm.get('email')?.getError('email')">
+        email Invalid Format
+      </p>
+    </div>
+  </div>
+
+  <div class="form-item">
+    <label for="password">password</label>
+    <input
+      class="form-control"
+      formControlName="password"
+      type="password"
+      id="password"
+    />
+
+    <div
+      *ngIf="
+        loginForm.get('password')?.errors &&
+        (loginForm.get('password')?.touched ||
+          loginForm.get('password')?.value.length > 0)"
+      class="alert alert-danger">
+      <p *ngIf="loginForm.get('password')?.getError('required')">
+        password is Required
+      </p>
+      <p *ngIf="loginForm.get('password')?.getError('pattern')">
+        password must at least 6 chars
+      </p>
+    </div>
+
+  </div>
+
+  <button [disabled]="loginForm.invalid" type="submit" class="main-btn ms-auto d-block"> 
+    <i  *ngIf="isLoading" class="fa fa-spinner fa-spin "  ></i>
+    <span *ngIf="!isLoading">Login</span>
+  </button>
+  
+  <p *ngIf="errorMessage" class="alert alert-danger"> {{errorMessage}} </p>
+</form>
+
+

@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
+$maincolor:#0aad0a;
+$light-color:#f0f3f2;
+$shadow:rgba(145,158,171,0.2)0px 2px 4px -1px,rgba(145,158,171,0.14)0px 4px 5px 0px,rgba(145,158,171,0.12) 0px 4px 5px 0px;
+
+$rating-color:#ffc908;
+$main-transition:0.8s;
+
+$bg_color: #666867;
+
+body{
+    font-family: "Encode Sans Expanded", sans-serif;
+    background-color: #2a2c2b;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+.bg-nav{
+    background-color: $bg_color;
+}
+
+.rating-color{
+    color: $rating-color;
+}
+.text-main{
+    color: $maincolor;
+}
+.bg-main-light{
+    background-color: $light-color;
+}
+
+.active-link{
+    background-color: $maincolor;
+    color: #ffff;
+    border-radius: 5px;
+}
+
+.font-sm{
+    font-size: 12px;
+}
+.main-btn{
+    //all:unset; //remove the default property that browser gives to an element
+    background-color: $maincolor;
+    padding: 4px 8px;
+    border-radius: 8px;
+    color: #ffff;
+    cursor: pointer;
+    border: unset;
+
+    &:disabled{
+        background-color: #0347036d;
+        color: #ffffff6b;
+        cursor: not-allowed;
+    }
+
+}
+
+.btnh:hover{
+    background-color: $maincolor;
+    color: $light-color;
+}
+
+.product{
+    border: 1px solid $maincolor;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+

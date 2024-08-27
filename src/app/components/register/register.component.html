@@ -1,0 +1,123 @@
+<form (ngSubmit)="handelRegister()" [formGroup]="regitserForm" class="rounded shadow w-75 mx-auto bg-main-light p-3 mt-4">
+  <!-- <p> {{regitserForm.get("name")?.getError("minlenght") | json }} </p> -->
+  <div class="form-item">
+    <label for="name">name</label>
+    <input class="form-control" formControlName="name" type="text" id="name" />
+    <div
+      *ngIf="
+        regitserForm.get('name')?.errors &&
+        (regitserForm.get('name')?.touched ||
+          regitserForm.get('name')?.value.length > 0)
+      "
+      class="alert alert-danger"
+    >
+      <p *ngIf="regitserForm.get('name')?.getError('required')">
+        Name is Required
+      </p>
+      <p *ngIf="regitserForm.get('name')?.getError('minlength')">
+        Name MinLength is 3
+      </p>
+      <p *ngIf="regitserForm.get('name')?.getError('maxlength')">
+        Name MaxLength is 20
+      </p>
+    </div>
+  </div>
+  <div class="form-item">
+    <label for="email">email</label>
+    <input
+      class="form-control"
+      formControlName="email"
+      type="email"
+      id="email"
+    />
+    <div
+      *ngIf="
+        regitserForm.get('email')?.errors &&
+        (regitserForm.get('email')?.touched ||
+          regitserForm.get('email')?.value.length > 0)
+      "
+      class="alert alert-danger"
+    >
+      <p *ngIf="regitserForm.get('email')?.getError('required')">
+        email is Required
+      </p>
+      <p *ngIf="regitserForm.get('email')?.getError('email')">
+        email Invalid Format
+      </p>
+    </div>
+  </div>
+
+  <div class="form-item">
+    <label for="password">password</label>
+    <input
+      class="form-control"
+      formControlName="password"
+      type="password"
+      id="password"
+    />
+
+    <div
+      *ngIf="
+        regitserForm.get('password')?.errors &&
+        (regitserForm.get('password')?.touched ||
+          regitserForm.get('password')?.value.length > 0)"
+      class="alert alert-danger">
+      <p *ngIf="regitserForm.get('password')?.getError('required')">
+        password is Required
+      </p>
+      <p *ngIf="regitserForm.get('password')?.getError('pattern')">
+        password must at least 6 chars
+      </p>
+    </div>
+
+  </div>
+
+  <div class="form-item">
+    <label for="repassword">repassword</label>
+    <input
+      class="form-control"
+      formControlName="rePassword"
+      type="password"
+      id="rePassword"
+    />
+
+    <div
+      *ngIf="
+        regitserForm.get('rePassword')?.errors &&
+        (regitserForm.get('rePassword')?.touched ||
+          regitserForm.get('rePassword')?.value.length > 0)
+      "
+      class="alert alert-danger"
+    >
+      <p *ngIf="regitserForm.get('rePassword')?.getError('required')">
+        rePassword is Required
+      </p>
+      <p *ngIf="regitserForm.get('rePassword')?.getError('misMatch')">
+        Password confirm is incorrect
+      </p>
+    </div>
+  </div>
+
+  <div class="form-item">
+    <label for="phone">phone</label>
+    <input class="form-control" formControlName="phone" type="tel" id="phone" />
+
+    <div
+      *ngIf="
+        regitserForm.get('phone')?.errors &&
+        (regitserForm.get('phone')?.touched ||
+          regitserForm.get('phone')?.value.length > 0)"
+      class="alert alert-danger">
+      <p *ngIf="regitserForm.get('phone')?.getError('required')">
+        phone is Required
+      </p>
+      <p *ngIf="regitserForm.get('phone')?.getError('pattern')">
+        accept only egypt phone numbers
+      </p>
+    </div>
+  </div>
+
+  <button [disabled]="regitserForm.invalid" type="submit" class="main-btn ms-auto d-block">Register <span *ngIf="isLoading"> <i class="fas fa-spin fa-spinner" ></i> </span></button>
+
+  <p *ngIf="errorMessage" class="alert alert-danger"> {{errorMessage}} </p>
+</form>

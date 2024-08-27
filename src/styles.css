@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+body {
+  font-family: "Encode Sans Expanded", sans-serif;
+}
+
+.rating-color {
+  color: #ffc908;
+}
+
+.text-main {
+  color: #0aad0a;
+}
+
+.bg-light-main {
+  background-color: #f0f3f2;
+}
+
+.active-link {
+  background-color: #0aad0a;
+  color: white;
+  border-radius: 5px;
+}
+
+.font-sm {
+  font-size: 12px;
+}
+
+.main-btn {
+  background-color: #0aad0a;
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  border: unset;
+}
+.main-btn:disabled {
+  background-color: rgba(3, 71, 3, 0.4274509804);
+  color: rgba(255, 255, 255, 0.4196078431);
+  cursor: not-allowed;
+}
+
+.product {
+  border: 1px solid #0aad0a;
+  padding: 5px;
+  border-radius: 5px;
+}/*# sourceMappingURL=styles.css.map */

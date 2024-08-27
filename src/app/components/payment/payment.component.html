@@ -1,0 +1,36 @@
+
+<section class="w-75 mx-auto rounded bg-main-light p-3 shadow my-3">
+    <form [formGroup]="orderForm" (ngSubmit)="handelForm()">
+        <div class="formitem">
+            <label for="">details</label>
+            <input formControlName="details" type="text" class="form-control" id="details">
+
+            <div class="form-item">
+                <label for="">phone</label>
+                <input formControlName="phone" type="tel" class="form-control"  id="phone">
+
+                    <div
+                            *ngIf="
+                                orderForm.get('phone')?.errors &&
+                                (orderForm.get('phone')?.touched ||
+                                orderForm.get('phone')?.value.length > 0)
+                            "
+                            class="alert alert-danger"
+                            >
+                            <p *ngIf="orderForm.get('phone')?.getError('required')">
+                                phone is Required
+                            </p>
+                            <p *ngIf="orderForm.get('phone')?.getError('phone')">
+                                phone Invalid Format
+                            </p>
+                    </div>
+            </div>
+            
+
+            <label for="">city</label>
+            <input formControlName="city" type="text" class="form-control" id="city">
+        </div>
+
+        <button class="main-btn mt-3">CheckOut</button>
+    </form>
+</section>
